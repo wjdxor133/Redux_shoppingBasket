@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 import PostCode from "../PostCode/PostCode";
 
@@ -34,5 +33,3 @@ const ModalOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 999;
 `;
-
-const ModalWrapper = styled.div``;
