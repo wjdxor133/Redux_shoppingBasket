@@ -1,8 +1,5 @@
 import React from "react";
-import DaumPostcode, {
-  DaumPostcodeProps,
-  AddressData,
-} from "react-daum-postcode";
+import DaumPostcode from "react-daum-postcode";
 
 const Postcode = ({ setVisible, setAddress }) => {
   const handleComplete = (data) => {

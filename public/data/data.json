@@ -1,0 +1,70 @@
+{
+  "basketItems": [
+    {
+      "id": "1",
+      "title": "유칼립투스-블랙잭",
+      "deliveryPlace": "seoul",
+      "deliveryType": "express",
+      "productOption": "small",
+      "productImage": "https://okkot.s3.ap-northeast-2.amazonaws.com/1578550539502.png",
+      "price": 7500,
+      "etcTitle": "마스크 끈",
+      "etcPrice": 1500
+    },
+    {
+      "id": "2",
+      "title": "레드브릿지",
+      "deliveryPlace": "incheon",
+      "deliveryType": "direct",
+      "productOption": "small",
+      "productImage": "https://okkot.s3.ap-northeast-2.amazonaws.com/1578550539560.png",
+      "price": 15500,
+      "etcTitle": "가시제거기",
+      "etcPrice": 3500
+    }
+  ],
+  "deliveryFee": [
+    {
+      "id": 1,
+      "deliveryName": "직접 배송",
+      "deliveryType": "direct",
+      "deliveryPrice": 32000,
+      "deliveryInfo": "판매자가 예약된 상품을 배송까지 직접 배송하는 상품입니다."
+    },
+    {
+      "id": 2,
+      "deliveryName": "픽업",
+      "deliveryType": "pickup",
+      "deliveryPrice": 15000,
+      "deliveryInfo": "예약된 상품을 배송까지 구매자가 직접 픽업하는 상품입니다."
+    },
+    {
+      "id": 3,
+      "deliveryName": "택배 배송",
+      "deliveryType": "delivery",
+      "deliveryPrice": 32000,
+      "deliveryInfo": "택배사가 예약된 상품을 배송하는 상품입니다."
+    },
+    {
+      "id": 4,
+      "deliveryName": "고속 버스",
+      "deliveryType": "express",
+      "deliveryPrice": 32000,
+      "deliveryInfo": "고속 버스 배송 상품 상품입니다."
+    },
+    {
+      "id": 5,
+      "deliveryName": "항공 배송",
+      "deliveryType": "air",
+      "deliveryPrice": 32000,
+      "deliveryInfo": "항공 배송 상품 상품입니다."
+    },
+    {
+      "id": 6,
+      "deliveryName": "새벽 배송",
+      "deliveryType": "dawn",
+      "deliveryPrice": 32000,
+      "deliveryInfo": "새벽 배송 상품 상품입니다."
+    }
+  ]
+}
