@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { IoIosArrowForward } from "react-icons/io";
 import Cart from "../../containers/Cart/Cart";
 
 const Basket = () => {
@@ -9,7 +10,9 @@ const Basket = () => {
         <BasketHeaderLogoText>장바구니</BasketHeaderLogoText>
         <BasketHeaderCategoryBox>
           <BasketHeaderCategoryText>장바구니</BasketHeaderCategoryText>
+          <IoIosArrowForward size="14" />
           <BasketHeaderCategoryText>주문결제</BasketHeaderCategoryText>
+          <IoIosArrowForward size="14" />
           <BasketHeaderCategoryText>주문완료</BasketHeaderCategoryText>
         </BasketHeaderCategoryBox>
       </BasketHeader>
@@ -30,16 +33,19 @@ const BasketHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #000;
+  border-bottom: 2px solid #c4c4c4;
 `;
 
 const BasketHeaderLogoText = styled.p`
   font-weight: bold;
   font-size: 1.5rem;
+  margin-left: 1em;
 `;
 
 const BasketHeaderCategoryBox = styled.div`
   display: flex;
 `;
 
-const BasketHeaderCategoryText = styled.p``;
+const BasketHeaderCategoryText = styled.p`
+  margin: 0 1em;
+`;
