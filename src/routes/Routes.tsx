@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Basket from "./pages/Basket/Basket";
+import Basket from "../pages/Basket/Basket";
 
 import { Provider } from "react-redux";
-import store from "./store/store";
+import store from "../store/store";
 
 const Routes = () => {
   return (

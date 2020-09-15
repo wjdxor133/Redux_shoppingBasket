@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import DeliveryButton from "../DeliveryButton/DeliveryButton";
+import DeliveryBtn from "../DeliveryBtn/DeliveryBtn";
 
 interface DeliveryBtnListType {
   id: number;
@@ -13,23 +13,25 @@ interface DeliveryBtnListType {
 
 const DeliveryBtnList = () => {
   const [deliveryData, setdeliveryData] = useState<DeliveryBtnListType[]>([]);
-  const [deliveryInfoText, setDeliveryInfoText] = useState<string>();
+  const [deliveryInfoText, setDeliveryInfoText] = useState<string>("");
 
   useEffect(() => {
-    const getData = async () => {
+    const getDeliveryData = async () => {
       await axios.get("/data/data.json").then((res) => {
         setdeliveryData(res.data.deliveryFee);
       });
     };
-    getData();
+    getDeliveryData();
   }, []);
 
   useEffect(() => {}, [deliveryInfoText]);
 
+  // 배송 버튼 클릭 후, 정보 내용
   const ChangeDeliveryInfoText = (id: number) => {
     const infoText = deliveryData.filter((delivery) => {
       return delivery.id === id;
     });
+
     setDeliveryInfoText(infoText[0].deliveryInfo);
   };
 
@@ -39,7 +41,7 @@ const DeliveryBtnList = () => {
       <DeliveryBtnListBox>
         {deliveryData.map((delivery) => {
           return (
-            <DeliveryButton
+            <DeliveryBtn
               key={delivery.id}
               id={delivery.id}
               deliveryName={delivery.deliveryName}
@@ -57,6 +59,7 @@ export default DeliveryBtnList;
 
 const DeliveryBtnListComponent = styled.section`
   width: 100%;
+  height: 20%;
 `;
 
 const DeliveryBtnListTitle = styled.p`
@@ -69,5 +72,5 @@ const DeliveryBtnListBox = styled.ul`
 `;
 
 const DeliveryBtnInfoText = styled.p`
-  margin: 1em 0;
+  margin: 1em;
 `;

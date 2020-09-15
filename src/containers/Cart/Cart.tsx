@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "../../components/Modal/Modal";
 import DeliveryBtnList from "../../components/DeliveryBtnList/DeliveryBtnList";
+import CartProgressBars from "./CartProgressBars/CartProgressBars";
+import CartList from "../Cart/CartList/CartList";
 
 type CartStylePropsType = {
   visible: boolean;
@@ -9,7 +11,7 @@ type CartStylePropsType = {
 
 const Cart = () => {
   const [visible, setVisible] = useState<boolean>(false);
-  const [address, setAddress] = useState<string>("서울시 구로구 고척로 27마길");
+  const [address, setAddress] = useState<string>("서울시 구로구 고척로");
 
   // 모달창 on/off
   const openModal = () => {
@@ -30,8 +32,17 @@ const Cart = () => {
           setAddress={setAddress}
         />
       ) : null}
-
+      {/* 배송 버튼 종류 */}
       <DeliveryBtnList />
+      <CartProgressBars />
+      <CartComponentText>
+        오늘의 꽃 상품의 주문 가능 시간은 14:00 ~ 23:00 이며,
+      </CartComponentText>
+      <CartComponentText>
+        상품 구매 금액이 <span>2만원(오픈 이벤트 적용 중)</span>이상 시 부터
+        결제 및 배송이 가능합니다.
+      </CartComponentText>
+      <CartList />
     </CartComponent>
   );
 };
@@ -39,7 +50,9 @@ const Cart = () => {
 export default Cart;
 
 const CartComponent = styled.article`
-  width: 100%;
+  width: 80%;
+  height: 80%;
+  margin: 0 2em;
   background-color: ${(props: CartStylePropsType) =>
     props.visible ? "#fff" : null};
 `;
@@ -69,5 +82,13 @@ const AddressChangeBtn = styled.button`
 
   :hover {
     cursor: pointer;
+  }
+`;
+
+const CartComponentText = styled.p`
+  font-size: 0.8rem;
+
+  span {
+    color: red;
   }
 `;

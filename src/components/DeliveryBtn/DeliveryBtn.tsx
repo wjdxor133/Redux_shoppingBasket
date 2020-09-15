@@ -23,7 +23,7 @@ export default DeliveryButton;
 
 const DeliveryButtonComponent = styled.li`
   margin-left: 1em;
-  border: 1px solid #000;
+  border: 1px solid #c4c4c4;
   padding: 0.5em 1em;
   border-radius: 4px;
 
@@ -31,5 +31,6 @@ const DeliveryButtonComponent = styled.li`
     background-color: #424242;
     color: white;
     cursor: pointer;
+    border: 1px solid #000;
   }
 `;
