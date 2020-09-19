@@ -48,4 +48,8 @@ const BasketHeaderCategoryBox = styled.div`
 
 const BasketHeaderCategoryText = styled.p`
   margin: 0 1em;
+
+  :nth-child(1) {
+    font-weight: bold;
+  }
 `;
