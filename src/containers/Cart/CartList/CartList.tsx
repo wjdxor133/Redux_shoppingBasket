@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { TiEquals } from "react-icons/ti";
+import CartItem from "../CartItem/CartItem";
+
+interface basketItemsTypes {
+  id: number;
+  title: string;
+  deliveryPlace: string;
+  deliveryType: string;
+  productOption: string;
+  productImage: string;
+  price: number;
+  etcTitle: string;
+  etcPrice: number;
+}
 
 const CartList = () => {
+  const [data, setData] = useState<basketItemsTypes[]>([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      axios
+        .get("./data/data.json")
+        .then((res) => {
+          setData(res.data.basketItems);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    getData();
+  }, []);
+  console.log("data", data);
   return (
     <CartListComponent>
       <CartListHeader>
@@ -14,6 +44,21 @@ const CartList = () => {
         <CartListHeaderText>합계</CartListHeaderText>
         <CartListHeaderText>관리</CartListHeaderText>
       </CartListHeader>
+      {data.map((item) => {
+        return (
+          <CartItem
+            key={item.id}
+            title={item.title}
+            deliveryPlace={item.deliveryPlace}
+            deliveryType={item.deliveryType}
+            productOption={item.productOption}
+            productImage={item.productImage}
+            price={item.price}
+            etcTitle={item.etcTitle}
+            etcPrice={item.etcPrice}
+          />
+        );
+      })}
       <CartListFooter>
         <CartListFooterText>총 상품 금액: 12,000원</CartListFooterText>
         <AiOutlinePlusCircle size="14" />
@@ -29,6 +74,7 @@ export default CartList;
 
 const CartListComponent = styled.section`
   width: 80%;
+  height: 30%;
   margin-top: 1em;
 `;
 
@@ -41,7 +87,11 @@ const CartListHeader = styled.div`
 const CartListHeaderText = styled.p`
   font-weight: bold;
   text-align: center;
-  width: 20%;
+  width: 14%;
+
+  :nth-child(1) {
+    width: 30%;
+  }
 `;
 
 const CartListFooter = styled.div`

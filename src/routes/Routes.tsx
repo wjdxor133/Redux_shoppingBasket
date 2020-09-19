@@ -10,7 +10,7 @@ const Routes = () => {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/basket" component={Basket}></Route>
+          <Route exact path="/" component={Basket}></Route>
         </Switch>
       </Router>
     </Provider>
