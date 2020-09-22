@@ -22,10 +22,18 @@ const DeliveryButton = ({
 export default DeliveryButton;
 
 const DeliveryButtonComponent = styled.li`
-  margin-left: 1em;
+  margin-left: 1rem;
   border: 1px solid #c4c4c4;
+  font-size: 0.85rem;
   padding: 0.5em 1em;
   border-radius: 4px;
+
+  ${({ theme }) => theme.tablet`
+    width: 40%;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 0.2rem;
+  `}
 
   :hover {
     background-color: #424242;

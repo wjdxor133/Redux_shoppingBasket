@@ -18,8 +18,12 @@ const ProgressBars = () => {
 export default ProgressBars;
 
 const ProgressBarsComponent = styled.section`
-  width: 50%;
+  width: 70%;
   margin-top: 1em;
+  ${({ theme }) => theme.tablet`
+    width: 100%;
+    margin-top: 5em;
+  `}
 `;
 
 const ProgressBarsTitle = styled.p`
