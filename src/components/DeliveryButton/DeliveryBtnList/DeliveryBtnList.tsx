@@ -69,6 +69,10 @@ const DeliveryBtnListTitle = styled.p`
 
 const DeliveryBtnListBox = styled.ul`
   display: flex;
+
+  ${({ theme }) => theme.tablet`
+    flex-wrap: wrap;
+  `}
 `;
 
 const DeliveryBtnInfoText = styled.p`
