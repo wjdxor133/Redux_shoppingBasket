@@ -59,7 +59,6 @@ export default DeliveryBtnList;
 
 const DeliveryBtnListComponent = styled.section`
   width: 100%;
-  height: 20%;
 `;
 
 const DeliveryBtnListTitle = styled.p`
@@ -77,4 +76,6 @@ const DeliveryBtnListBox = styled.ul`
 
 const DeliveryBtnInfoText = styled.p`
   margin: 1em;
+  font-size: 1rem;
+  font-weight: bold;
 `;

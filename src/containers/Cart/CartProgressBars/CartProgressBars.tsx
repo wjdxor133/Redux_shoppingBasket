@@ -22,7 +22,7 @@ const ProgressBarsComponent = styled.section`
   margin-top: 1em;
   ${({ theme }) => theme.tablet`
     width: 100%;
-    margin-top: 5em;
+    margin-top: 2em;
   `}
 `;
 
