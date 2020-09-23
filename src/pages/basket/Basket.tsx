@@ -7,7 +7,6 @@ const Basket = () => {
   return (
     <BasketPage>
       <Header />
-
       <Cart />
     </BasketPage>
   );

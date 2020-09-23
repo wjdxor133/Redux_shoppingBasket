@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import { IoIosArrowForward } from "react-icons/io";
 import Modal from "../../components/Modal/Modal";
 import DeliveryBtnList from "../../components/DeliveryButton/DeliveryBtnList/DeliveryBtnList";
 import CartProgressBars from "./CartProgressBars/CartProgressBars";
 import CartList from "../Cart/CartList/CartList";
 
+import { connect } from "react-redux";
+import { addItem } from "../../store/cart/cartAcrions";
+
 type CartStylePropsType = {
   visible: boolean;
 };
 
-const Cart = () => {
+interface CartDataType {
+  id: string;
+  title: string;
+  deliveryPlace: string;
+  deliveryType: string;
+  productOption: string;
+  productImage: string;
+  price: number;
+  etcTitle: string;
+  etcPrice: number;
+}
+
+const Cart = ({ addItem }: any) => {
   const [visible, setVisible] = useState<boolean>(false);
   const [address, setAddress] = useState<string>("서울시 구로구 고척로");
 
@@ -18,6 +34,25 @@ const Cart = () => {
   const openModal = () => {
     setVisible(true);
   };
+
+  useEffect(() => {
+    const getData = async () => {
+      axios
+        .get("./data/data.json")
+        .then((res) => {
+          addItem(res.data.basketItems);
+        })
+        .catch((error) => {
+          if (error.response.status === 400 || 404) {
+            console.log("error", error);
+          } else if (error.response.status === 500 || 503) {
+            console.log("일시적인 오류가 발생했습니다.");
+          }
+        });
+    };
+
+    getData();
+  }, []);
 
   return (
     <CartComponent visible={visible}>
@@ -60,7 +95,17 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+const mapStateToProps = (state: CartDataType[]) => {
+  return { cartData: state };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    addItem: (item: any) => dispatch(addItem(item)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
 
 const CartComponent = styled.article`
   width: 80%;

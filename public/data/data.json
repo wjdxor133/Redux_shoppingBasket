@@ -33,7 +33,7 @@
     },
     {
       "id": 2,
-      "deliveryName": "픽업",
+      "deliveryName": "픽업 배송",
       "deliveryType": "pickup",
       "deliveryPrice": 15000,
       "deliveryInfo": "예약된 상품을 배송까지 구매자가 직접 픽업하는 상품입니다."
